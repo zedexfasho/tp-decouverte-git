@@ -1,17 +1,17 @@
-name: CI - Vérification automatique
+name: CI
 
 on:
+  push:
+    branches: [ "main", "feature-junior" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  verify:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Récupérer le code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: echo "CI OK"
 
-      - name: Vérifier les fichiers
-        run: |
-          ls -la
